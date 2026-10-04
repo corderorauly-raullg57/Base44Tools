@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0A0A0F">
+<title>Base44 Tools — Ecosistema profesional de herramientas digitales</title>
+<meta name="description" content="Descubre +30 herramientas digitales para simplificar tareas, automatizar procesos y potenciar tu productividad. Gratuitas y premium con prueba de 3 días.">
+<meta property="og:title" content="Base44 Tools — Herramientas digitales para hacer más, en menos tiempo">
+<meta property="og:description" content="Ecosistema profesional de herramientas digitales. IA, Marketing, Productividad, Diseño y Utilidades.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#6366F1;--primary-dark:#4F46E5;--primary-glow:rgba(99,102,241,.4);
+  --secondary:#10B981;--accent:#F59E0B;--premium:#8B5CF6;--bonus:#3B82F6;--trial:#EC4899;
+  --bg:#0A0A0F;--bg-2:#101018;--surface:#14141F;--surface-2:#1C1C2E;--surface-3:#22223A;
+  --border:#2A2A3E;--border-2:#3A3A52;
+  --text:#F8FAFC;--text-2:#CBD5E1;--text-3:#94A3B8;--text-4:#64748B;
+  --radius-sm:8px;--radius:12px;--radius-lg:16px;--radius-xl:24px;
+  --shadow-sm:0 2px 8px rgba(0,0,0,.4);--shadow:0 8px 24px rgba(0,0,0,.5);
+  --shadow-lg:0 24px 48px rgba(0,0,0,.6);--shadow-glow:0 0 40px var(--primary-glow);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+body.no-scroll{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img{max-width:100%;display:block}
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+@media(max-width:768px){.container{padding:0 16px}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse{0%{transform:scale(1);opacity:1}100%{transform:scale(3);opacity:0}}
+@keyframes ring{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.5);opacity:0}}
+img.art-png{transition:filter .4s var(--ease)}
+.glow-indigo{filter:drop-shadow(0 0 36px rgba(99,102,241,.5)) drop-shadow(0 16px 36px rgba(0,0,0,.55)) brightness(1.05)}
+.glow-blue{filter:drop-shadow(0 0 32px rgba(14,165,233,.45)) drop-shadow(0 16px 36px rgba(0,0,0,.55)) brightness(1.05)}
+.glow-violet{filter:drop-shadow(0 0 32px rgba(139,92,246,.5)) drop-shadow(0 16px 36px rgba(0,0,0,.55)) brightness(1.05)}
+.glow-pink{filter:drop-shadow(0 0 32px rgba(236,72,153,.45)) drop-shadow(0 16px 36px rgba(0,0,0,.55)) brightness(1.05)}
+.glow-green{filter:drop-shadow(0 0 32px rgba(37,211,102,.4)) drop-shadow(0 16px 36px rgba(0,0,0,.55)) brightness(1.05)}
+.art-fallback{border-radius:24px;background:#fff;padding:14px;box-shadow:var(--shadow-lg);border:1px solid var(--border-2);filter:none !important}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all .3s var(--ease)}
+.nav.scrolled{background:rgba(10,10,15,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:12px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.02em}
+.logo-mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--premium));display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:14px;box-shadow:var(--shadow-glow)}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-link{padding:8px 14px;font-size:14px;font-weight:500;color:var(--text-2);border-radius:8px;transition:all .2s}
+.nav-link:hover{color:var(--text);background:var(--surface)}
+.nav-cta{padding:10px 18px;background:var(--primary);color:#fff;font-weight:600;font-size:14px;border-radius:10px;transition:all .2s;box-shadow:0 4px 12px var(--primary-glow)}
+.nav-cta:hover{background:var(--primary-dark);transform:translateY(-1px)}
+.menu-toggle{display:none;width:40px;height:40px;align-items:center;justify-content:center;border-radius:8px;background:var(--surface)}
+.menu-toggle svg{width:22px;height:22px}
+@media(max-width:968px){
+  .nav-links{position:fixed;top:68px;left:0;right:0;flex-direction:column;background:var(--surface);padding:16px;gap:4px;transform:translateY(-120%);transition:transform .3s var(--ease);border-bottom:1px solid var(--border)}
+  .nav-links.open{transform:translateY(0)}
+  .nav-link,.nav-cta{width:100%;text-align:center}
+  .menu-toggle{display:flex}
+}
+.hero{position:relative;padding:150px 0 90px;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;left:30%;width:800px;height:800px;background:radial-gradient(circle,var(--primary-glow) 0%,transparent 60%);opacity:.28;pointer-events:none;z-index:0}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 20%,transparent 75%);opacity:.3}
+.hero-layout{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero-copy{text-align:left}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:var(--surface);border:1px solid var(--border-2);border-radius:100px;font-size:13px;color:var(--text-2);margin-bottom:28px}
+.pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--secondary);position:relative}
+.pulse-dot::after{content:'';position:absolute;inset:0;border-radius:50%;background:var(--secondary);animation:pulse 2s infinite}
+.hero h1{font-size:clamp(2.1rem,4.6vw,3.9rem);font-weight:800;letter-spacing:-.03em;line-height:1.06;margin-bottom:20px}
+.gradient-text{background:linear-gradient(135deg,#818CF8 0%,#C084FC 50%,#F472B6 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.hero-sub{font-size:clamp(1rem,1.6vw,1.2rem);color:var(--text-2);max-width:560px;margin-bottom:36px;line-height:1.55}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:12px;font-weight:600;font-size:15px;transition:all .25s var(--ease);cursor:pointer;border:none;font-family:inherit}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 4px 16px var(--primary-glow)}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 8px 24px var(--primary-glow)}
+.btn-ghost{background:var(--surface);color:var(--text);border:1px solid var(--border-2)}
+.btn-ghost:hover{background:var(--surface-2);border-color:var(--primary)}
+.btn svg{width:18px;height:18px}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap}
+.stat-num{font-size:30px;font-weight:800;letter-spacing:-.02em;background:linear-gradient(135deg,#818CF8,#F472B6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:13px;color:var(--text-3);margin-top:2px}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-visual::before{content:'';position:absolute;inset:6%;background:radial-gradient(circle,rgba(99,102,241,.4),transparent 70%);filter:blur(34px)}
+.hero-img{width:min(500px,100%);position:relative;animation:floaty 6s ease-in-out infinite}
+@media(max-width:968px){
+  .hero{padding:120px 0 60px}
+  .hero-layout{grid-template-columns:1fr;gap:32px}
+  .hero-copy{text-align:center}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-ctas{justify-content:center}
+  .hero-stats{justify-content:center}
+  .hero-img{width:min(340px,82%)}
+}
+.search-section{position:relative;z-index:2;margin-top:-30px}
+.search-wrap{max-width:720px;margin:0 auto;background:var(--surface);border:1px solid var(--border-2);border-radius:20px;padding:8px;box-shadow:var(--shadow-lg)}
+.search-wrap:focus-within{border-color:var(--primary);box-shadow:var(--shadow-lg),0 0 0 4px var(--primary-glow)}
+.search-box{display:flex;align-items:center;gap:12px;padding:8px 12px}
+.search-box svg{width:22px;height:22px;color:var(--text-3);flex-shrink:0}
+.search-box input{flex:1;background:none;border:none;outline:none;color:var(--text);font-size:16px;font-family:inherit;padding:8px 0}
+.search-box input::placeholder{color:var(--text-4)}
+.search-box .clear-btn{padding:6px;border-radius:6px;color:var(--text-3);transition:all .2s;display:none}
+.search-box .clear-btn.visible{display:flex}
+.search-box .clear-btn:hover{background:var(--surface-2);color:var(--text)}
+.search-suggestions{display:flex;gap:8px;flex-wrap:wrap;padding:8px 12px 4px;align-items:center}
+.search-suggestions span{font-size:12px;color:var(--text-4)}
+.suggestion-chip{padding:4px 12px;background:var(--surface-2);border:1px solid var(--border);border-radius:100px;font-size:12px;color:var(--text-2);transition:all .2s;cursor:pointer}
+.suggestion-chip:hover{background:var(--surface-3);color:var(--text);border-color:var(--border-2)}
+.filters{padding:32px 24px 16px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;position:sticky;top:64px;z-index:50;background:var(--bg);backdrop-filter:blur(8px);border-bottom:1px solid transparent}
+.filters.scrolled{border-bottom-color:var(--border)}
+.filter-chip{padding:10px 18px;background:var(--surface);border:1px solid var(--border);border-radius:100px;font-size:14px;font-weight:500;color:var(--text-2);transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.filter-chip:hover{background:var(--surface-2);color:var(--text);border-color:var(--border-2)}
+.filter-chip.active{background:var(--primary);border-color:var(--primary);color:#fff}
+.filter-chip .count{font-size:12px;padding:2px 8px;background:rgba(255,255,255,.15);border-radius:100px}
+.section{padding:80px 0}
+.section-head{text-align:center;margin-bottom:56px}
+.section-tag{display:inline-block;padding:6px 14px;background:var(--surface);border:1px solid var(--border-2);border-radius:100px;font-size:12px;font-weight:600;color:var(--primary);text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px}
+.section-title{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;letter-spacing:-.02em;margin-bottom:16px;line-height:1.1}
+.section-sub{font-size:clamp(1rem,1.5vw,1.125rem);color:var(--text-2);max-width:640px;margin:0 auto}
+.section-head-row{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;gap:24px;flex-wrap:wrap}
+.section-head-row h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;letter-spacing:-.02em}
+.section-head-row p{color:var(--text-2);margin-top:8px;max-width:480px}
+.view-all{color:var(--primary);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.view-all:hover{gap:10px}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+@media(max-width:480px){.tools-grid{grid-template-columns:1fr}}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all .3s var(--ease);cursor:pointer;position:relative;display:flex;flex-direction:column}
+.tool-card:hover{border-color:var(--border-2);transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.tool-banner{position:relative;height:112px;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
+.tool-banner::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.18) 1px,transparent 1.5px);background-size:16px 16px;opacity:.5;mask-image:linear-gradient(180deg,black,transparent 85%)}
+.tool-banner::after{content:'';position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.14);filter:blur(40px);top:-60px;right:-40px}
+.banner-icon{width:60px;height:60px;border-radius:16px;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-size:30px;box-shadow:0 8px 24px rgba(0,0,0,.3);transition:transform .35s var(--ease);position:relative;z-index:2}
+.tool-card:hover .banner-icon{transform:scale(1.12) rotate(-4deg)}
+.banner-badges{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:5px;align-items:flex-end;z-index:3}
+.banner-cat{position:absolute;bottom:10px;left:14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);background:rgba(0,0,0,.28);backdrop-filter:blur(6px);padding:4px 10px;border-radius:100px;z-index:3}
+.badge{padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.02em;display:inline-flex;align-items:center;gap:4px;backdrop-filter:blur(8px);text-shadow:0 1px 2px rgba(0,0,0,.4)}
+.badge-free{background:rgba(6,78,59,.8);color:#6EE7B7;border:1px solid rgba(16,185,129,.5)}
+.badge-premium{background:rgba(76,29,149,.8);color:#C4B5FD;border:1px solid rgba(139,92,246,.5)}
+.badge-trial{background:rgba(131,24,67,.8);color:#F9A8D4;border:1px solid rgba(236,72,153,.5)}
+.badge-bonus{background:rgba(30,58,138,.8);color:#93C5FD;border:1px solid rgba(59,130,246,.5)}
+.badge-new{background:rgba(120,53,15,.8);color:#FCD34D;border:1px solid rgba(245,158,11,.5)}
+.badge-featured{background:rgba(30,30,46,.8);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.badge-popular{background:rgba(127,29,29,.8);color:#FCA5A5;border:1px solid rgba(239,68,68,.5)}
+.tool-body{padding:20px;display:flex;flex-direction:column;flex:1}
+.tool-body h3{font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+.tool-desc{font-size:14px;color:var(--text-2);margin-bottom:16px;line-height:1.55;flex:1}
+.tool-benefit{display:flex;gap:8px;align-items:flex-start;padding:12px;background:var(--surface-2);border-radius:10px;margin-bottom:16px;font-size:13px;color:var(--text-2)}
+.tool-benefit svg{width:16px;height:16px;color:var(--secondary);flex-shrink:0;margin-top:2px}
+.tool-actions{display:flex;gap:8px}
+.tool-btn{flex:1;padding:10px 14px;border-radius:10px;font-size:13px;font-weight:600;transition:all .2s;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;}
+.tool-btn-primary{background:var(--primary);color:#fff}
+.tool-btn-primary:hover{background:var(--primary-dark)}
+.tool-btn-ghost{background:var(--surface-2);color:var(--text);border:1px solid var(--border)}
+.tool-btn-ghost:hover{border-color:var(--border-2);background:var(--surface-3)}
+.tool-btn svg{width:14px;height:14px}
+.empty-state{grid-column:1/-1;text-align:center;padding:80px 24px;background:var(--surface);border:1px dashed var(--border-2);border-radius:var(--radius-lg)}
+.empty-state svg{width:64px;height:64px;color:var(--text-4);margin:0 auto 20px}
+.empty-state h3{font-size:20px;margin-bottom:8px}
+.empty-state p{color:var(--text-3);margin-bottom:20px}
+.how-works{background:var(--bg-2)}
+.hw-visual{display:flex;justify-content:center;margin-bottom:56px;position:relative}
+.hw-visual::before{content:'';position:absolute;top:10%;left:50%;transform:translateX(-50%);width:60%;height:70%;background:radial-gradient(circle,rgba(14,165,233,.28),transparent 70%);filter:blur(36px)}
+.hw-visual img{width:min(560px,100%);position:relative;animation:floaty 7s ease-in-out infinite}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+@media(max-width:968px){.steps{grid-template-columns:1fr}}
+.step{text-align:center;padding:24px 16px}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--surface);border:2px solid var(--primary);color:var(--primary);font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.step h4{font-size:16px;font-weight:700;margin-bottom:8px}
+.step p{font-size:14px;color:var(--text-3);line-height:1.5}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:56px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);position:relative;overflow:hidden}
+.split::before{content:'';position:absolute;top:-40%;right:-15%;width:420px;height:420px;background:radial-gradient(circle,var(--primary-glow),transparent 70%);opacity:.25}
+.split-media{position:relative;display:flex;justify-content:center}
+.split-media::before{content:'';position:absolute;inset:10%;background:radial-gradient(circle,rgba(99,102,241,.35),transparent 70%);filter:blur(36px)}
+.split-media img{width:min(400px,100%);position:relative;animation:floaty 6s ease-in-out infinite}
+.split-copy{position:relative;z-index:1}
+.split-copy h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;letter-spacing:-.02em;margin-bottom:16px;line-height:1.15}
+.split-copy p{color:var(--text-2);margin-bottom:28px;font-size:clamp(.95rem,1.4vw,1.1rem);line-height:1.6}
+@media(max-width:968px){
+  .split{grid-template-columns:1fr;padding:36px 28px;text-align:center;gap:32px}
+  .split.rev .split-media{order:2}
+  .split-media img{width:min(280px,78%)}
+}
+.transform-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+@media(max-width:968px){.transform-grid{grid-template-columns:1fr;gap:40px}}
+.transform-copy .section-title{text-align:left}
+.transform-block{padding:20px 24px;border-radius:var(--radius);margin-bottom:16px;border:1px solid}
+.transform-block h4{font-size:16px;font-weight:700;margin-bottom:8px}
+.transform-block p{font-size:14px;line-height:1.6;color:var(--text-2)}
+.transform-block.problem{background:rgba(239,68,68,.06);border-color:rgba(239,68,68,.25)}
+.transform-block.problem h4{color:#FCA5A5}
+.transform-block.solution{background:rgba(16,185,129,.06);border-color:rgba(16,185,129,.25)}
+.transform-block.solution h4{color:#6EE7B7}
+.transform-frame{position:relative;border-radius:var(--radius-xl);overflow:hidden;border:1px solid var(--border-2);box-shadow:var(--shadow-lg),0 0 60px rgba(99,102,241,.15)}
+.transform-frame img{width:100%;height:auto;display:block}
+.float-chip{position:absolute;padding:10px 16px;background:rgba(10,10,15,.82);backdrop-filter:blur(12px);border:1px solid var(--border-2);border-radius:100px;font-size:13px;font-weight:600;color:var(--text);box-shadow:var(--shadow);animation:floaty 4s ease-in-out infinite}
+.chip-1{top:18px;left:18px;color:#6EE7B7;border-color:rgba(16,185,129,.4)}
+.chip-2{bottom:18px;right:18px;color:#C4B5FD;border-color:rgba(139,92,246,.4);animation-delay:2s}
+@media(max-width:600px){.float-chip{font-size:11px;padding:8px 12px}}
+.demo{background:var(--bg-2)}
+.video-frame{max-width:960px;margin:0 auto;border-radius:var(--radius-xl);overflow:hidden;border:1px solid var(--border-2);box-shadow:var(--shadow-lg),0 0 80px rgba(99,102,241,.2);background:#000}
+.video-frame video{width:100%;display:block;aspect-ratio:16/9;object-fit:contain;background:#000}
+.video-chips{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.video-chips span{padding:8px 18px;background:var(--surface);border:1px solid var(--border);border-radius:100px;font-size:13px;color:var(--text-2)}
+.cats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.cat-card{padding:28px 24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);transition:all .3s var(--ease);cursor:pointer;position:relative;overflow:hidden}
+.cat-card:hover{border-color:var(--border-2);transform:translateY(-4px);box-shadow:var(--shadow)}
+.cat-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--premium));transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.cat-card:hover::after{transform:scaleX(1)}
+.cat-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:16px;border:1px solid rgba(255,255,255,.15)}
+.cat-card h3{font-size:17px;font-weight:700;margin-bottom:6px}
+.cat-card .count{font-size:13px;color:var(--text-3)}
+.why-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:44px;align-items:center;margin-bottom:44px}
+@media(max-width:968px){.why-layout{grid-template-columns:1fr;gap:32px}}
+.why-media{position:relative;border-radius:var(--radius-xl);overflow:hidden;border:1px solid var(--border-2);box-shadow:var(--shadow-lg),0 0 60px rgba(99,102,241,.18);aspect-ratio:3/2;background:var(--surface-2)}
+@supports not (aspect-ratio:1/1){.why-media{height:320px}}
+.why-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;transition:transform .8s var(--ease)}
+.why-media:hover img{transform:scale(1.04)}
+.why-media.no-img::before{content:'🤖';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;background:linear-gradient(135deg,#1C1C2E,#22223A)}
+.why-caption{display:flex;gap:12px;align-items:center;margin-top:16px;color:var(--text-2);font-size:13.5px;line-height:1.5}
+.cap-icon{width:44px;height:44px;border-radius:12px;background:rgba(99,102,241,.25);backdrop-filter:blur(10px);border:1px solid rgba(99,102,241,.45);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.why-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media(max-width:560px){.why-cards{grid-template-columns:1fr}}
+.why-card{padding:22px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);transition:all .3s var(--ease);position:relative}
+.why-card:hover{border-color:var(--border-2);transform:translateY(-4px);box-shadow:var(--shadow)}
+.why-card .num{position:absolute;top:16px;right:18px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-4);font-weight:500;letter-spacing:.05em}
+.why-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--premium));display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:14px;flex-shrink:0}
+.why-icon svg{width:22px;height:22px}
+.why-card h3{font-size:15.5px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
+.why-card p{font-size:13px;color:var(--text-2);line-height:1.55}
+.why-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 32px;background:linear-gradient(135deg,rgba(99,102,241,.12),rgba(139,92,246,.12));border:1px solid var(--border-2);border-radius:var(--radius-xl);flex-wrap:wrap}
+.why-cta h3{font-size:clamp(1.2rem,2.4vw,1.6rem);font-weight:800;letter-spacing:-.02em}
+.why-cta p{color:var(--text-2);font-size:14px;margin-top:6px}
+.why-cta-btns{display:flex;gap:12px;flex-wrap:wrap}
+@media(max-width:640px){.why-cta{padding:24px;justify-content:center;text-align:center}}
+.growth{background:linear-gradient(135deg,rgba(99,102,241,.08),rgba(139,92,246,.08));border:1px solid var(--border-2);border-radius:var(--radius-xl);padding:64px 40px;text-align:center;position:relative;overflow:hidden}
+.growth::before{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,var(--primary-glow),transparent 70%);opacity:.3}
+.growth-content{position:relative;z-index:1}
+.growth h2{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.02em;margin-bottom:16px}
+.growth p{color:var(--text-2);max-width:640px;margin:0 auto 40px;font-size:clamp(1rem,1.5vw,1.125rem)}
+.growth-stages{display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;margin-top:32px}
+.stage{text-align:center;padding:24px 32px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);min-width:140px}
+.stage.current{border-color:var(--primary);box-shadow:var(--shadow-glow)}
+.stage-num{font-size:36px;font-weight:800;letter-spacing:-.02em}
+.stage.current .stage-num{background:linear-gradient(135deg,#818CF8,#F472B6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stage-label{font-size:13px;color:var(--text-3);margin-top:4px}
+.stage-arrow{color:var(--text-4);font-size:24px}
+@media(max-width:600px){.stage-arrow{display:none}}
+.creator{background:var(--bg-2);border-radius:var(--radius-xl);padding:48px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;position:relative;overflow:hidden}
+.creator-main{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
+.creator-photo{width:170px;height:200px;border-radius:28px;object-fit:cover;object-position:50% 18%;flex-shrink:0;border:3px solid rgba(255,255,255,.14);box-shadow:0 16px 40px rgba(0,0,0,.55),0 0 0 5px rgba(99,102,241,.22),0 0 44px rgba(99,102,241,.3);filter:saturate(1.05)}
+.creator h3{font-size:24px;font-weight:800;margin-bottom:8px}
+.creator .role{color:var(--primary);font-size:14px;font-weight:600;margin-bottom:16px}
+.creator p{color:var(--text-2);margin-bottom:20px}
+.creator-contacts{display:flex;gap:12px;flex-wrap:wrap}
+.creator-visual{position:relative;display:flex;justify-content:center}
+.creator-visual::before{content:'';position:absolute;inset:8%;background:radial-gradient(circle,rgba(37,211,102,.28),transparent 70%);filter:blur(32px)}
+.creator-visual img{width:min(250px,70vw);position:relative;animation:floaty 6s ease-in-out infinite}
+.contact-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;font-size:14px;font-weight:600;transition:all .2s}
+.contact-btn-wa{background:rgba(37,211,102,.15);color:#25D366;border:1px solid rgba(37,211,102,.3)}
+.contact-btn-wa:hover{background:rgba(37,211,102,.25)}
+.contact-btn-tg{background:rgba(0,136,204,.15);color:#0088CC;border:1px solid rgba(0,136,204,.3)}
+.contact-btn-tg:hover{background:rgba(0,136,204,.25)}
+.contact-btn-mail{background:rgba(99,102,241,.15);color:var(--primary);border:1px solid rgba(99,102,241,.3)}
+.contact-btn-mail:hover{background:rgba(99,102,241,.25)}
+@media(max-width:968px){
+  .creator{grid-template-columns:1fr;padding:36px 28px;text-align:center;gap:32px}
+  .creator-main{grid-template-columns:1fr;justify-items:center;gap:24px}
+  .creator-contacts{justify-content:center}
+  .creator-photo{width:150px;height:180px}
+}
+.footer{border-top:1px solid var(--border);padding:64px 0 32px;margin-top:80px}
+.footer-grid{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:48px;margin-bottom:48px}
+@media(max-width:968px){.footer-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr}}
+.footer-brand p{color:var(--text-3);font-size:14px;margin:16px 0;max-width:280px}
+.footer-col h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:10px}
+.footer-col a{color:var(--text-3);font-size:14px;transition:color .2s}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{padding-top:32px;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;color:var(--text-4);font-size:13px}
+.floating{position:fixed;bottom:24px;right:24px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.floating-main{width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:all .3s var(--ease);position:relative}
+.floating-main:hover{transform:scale(1.08)}
+.floating-main svg{width:28px;height:28px}
+.floating-main::after{content:'';position:absolute;inset:0;border-radius:50%;background:#25D366;animation:ring 2s infinite;opacity:.6;z-index:-1}
+.floating-menu{display:flex;flex-direction:column;gap:8px;opacity:0;transform:translateY(10px);pointer-events:none;transition:all .3s var(--ease)}
+.floating.open .floating-menu{opacity:1;transform:translateY(0);pointer-events:auto}
+.floating-item{display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--surface);border:1px solid var(--border-2);border-radius:100px;font-size:13px;font-weight:500;color:var(--text);box-shadow:var(--shadow);transition:all .2s}
+.floating-item:hover{background:var(--surface-2);transform:translateX(-4px)}
+.floating-item svg{width:18px;height:18px}
+.modal{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .3s;overflow-y:auto;display:flex;align-items:flex-start;justify-content:center;padding:40px 20px}
+.modal.open{opacity:1;pointer-events:auto}
+.modal-content{background:var(--bg);max-width:900px;width:100%;border-radius:var(--radius-xl);border:1px solid var(--border-2);position:relative;transform:translateY(20px);transition:transform .3s var(--ease);margin:auto;overflow:hidden}
+.modal.open .modal-content{transform:translateY(0)}
+.modal-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:10px;background:rgba(10,10,15,.6);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:#fff;z-index:6;transition:all .2s}
+.modal-close:hover{background:rgba(10,10,15,.85);transform:rotate(90deg)}
+.modal-banner{position:relative;height:150px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.modal-banner::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.18) 1px,transparent 1.5px);background-size:18px 18px;opacity:.5;mask-image:linear-gradient(180deg,black,transparent 90%)}
+.modal-banner::after{content:'';position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.14);filter:blur(60px);top:-80px;right:-60px}
+.modal-banner .banner-icon{width:80px;height:80px;font-size:40px;border-radius:20px}
+.modal-hero{padding:32px 40px 40px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,rgba(99,102,241,.06),transparent)}
+@media(max-width:600px){.modal-hero{padding:24px 20px 32px}}
+.modal-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.modal-hero h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+.modal-tagline{font-size:clamp(1rem,2vw,1.125rem);color:var(--text-2);margin-bottom:24px;line-height:1.5}
+.modal-ctas{display:flex;gap:10px;flex-wrap:wrap}
+.modal-body{padding:40px}
+@media(max-width:600px){.modal-body{padding:28px 20px}}
+.modal-section{margin-bottom:40px}
+.modal-section:last-child{margin-bottom:0}
+.modal-section h2{font-size:20px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.modal-section h2 svg{width:20px;height:20px;color:var(--primary)}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.feature-item{display:flex;gap:10px;align-items:flex-start;padding:14px;background:var(--surface);border-radius:10px;border:1px solid var(--border)}
+.feature-item svg{width:18px;height:18px;color:var(--secondary);flex-shrink:0;margin-top:2px}
+.feature-item span{font-size:14px;color:var(--text-2)}
+.benefits-list{display:grid;gap:12px}
+.benefit-item{display:flex;gap:12px;align-items:flex-start;padding:16px;background:linear-gradient(135deg,rgba(16,185,129,.08),transparent);border-radius:12px;border:1px solid rgba(16,185,129,.2)}
+.benefit-item svg{width:20px;height:20px;color:var(--secondary);flex-shrink:0;margin-top:2px}
+.benefit-item h4{font-size:15px;font-weight:600;margin-bottom:4px}
+.benefit-item p{font-size:13px;color:var(--text-3);margin:0}
+.steps-list{display:grid;gap:12px;counter-reset:step-counter}
+.step-item{display:flex;gap:16px;padding:16px;background:var(--surface);border-radius:12px;border:1px solid var(--border);counter-increment:step-counter}
+.step-item::before{content:counter(step-counter);flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--primary);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.step-item h4{font-size:15px;font-weight:600;margin-bottom:4px}
+.step-item p{font-size:13px;color:var(--text-3);margin:0}
+.modal-cta-final{padding:32px;background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(139,92,246,.1));border-radius:var(--radius-lg);text-align:center;border:1px solid var(--border-2)}
+.modal-cta-final h3{font-size:22px;font-weight:700;margin-bottom:8px}
+.modal-cta-final p{color:var(--text-2);margin-bottom:20px}
+.modal-cta-final .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:640px){
+  .section{padding:56px 0}
+  .floating{bottom:16px;right:16px}
+  .floating-main{width:52px;height:52px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="logo"><div class="logo-mark">B44</div><span>Base44 Tools</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link">Inicio</a>
+      <a href="#tools" class="nav-link">Herramientas</a>
+      <a href="#gratis" class="nav-link">Gratis</a>
+      <a href="#premium" class="nav-link">Premium</a>
+      <a href="#bonificaciones" class="nav-link">Bonificaciones</a>
+      <a href="#nuevas" class="nav-link">Nuevas</a>
+      <a href="#demo" class="nav-link">Demo</a>
+      <a href="#creador" class="nav-link">Sobre mí</a>
+      <a href="#contacto" class="nav-cta">Contactar</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="container">
+    <div class="hero-layout">
+      <div class="hero-copy reveal">
+        <div class="hero-badge"><span class="pulse-dot"></span><span><strong id="toolCount">30</strong> herramientas y creciendo continuamente</span></div>
+        <h1>Herramientas digitales para hacer más,<br><span class="gradient-text">en menos tiempo.</span></h1>
+        <p class="hero-sub">Descubre herramientas creadas para simplificar tareas, automatizar procesos, crear contenido y potenciar tu productividad.</p>
+        <div class="hero-ctas">
+          <a href="#tools" class="btn btn-primary">EXPLORAR HERRAMIENTAS
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="#contacto" class="btn btn-ghost">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+            CONTACTAR AHORA
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num" id="statTools">30</div><div class="stat-label">Herramientas</div></div>
+          <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Soporte humano</div></div>
+          <div class="stat"><div class="stat-num">3 días</div><div class="stat-label">Prueba gratis</div></div>
+          <div class="stat"><div class="stat-num">5</div><div class="stat-label">Categorías</div></div>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <img src="imagen5.png" class="art-png glow-indigo" alt="Ecosistema de herramientas digitales Base44 Tools">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container search-section">
+  <div class="search-wrap reveal">
+    <div class="search-box">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      <input type="text" id="searchInput" placeholder="¿Qué herramienta necesitas? (ej: WhatsApp, PDF, landing page, exe)">
+      <button class="clear-btn" id="clearSearch" aria-label="Limpiar">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="search-suggestions">
+      <span>Populares:</span>
+      <button class="suggestion-chip" data-search="WhatsApp">WhatsApp</button>
+      <button class="suggestion-chip" data-search="landing">Landing page</button>
+      <button class="suggestion-chip" data-search="exe">Convertir a EXE</button>
+      <button class="suggestion-chip" data-search="QR">QR</button>
+      <button class="suggestion-chip" data-search="PDF">PDF</button>
+      <button class="suggestion-chip" data-search="IA">IA</button>
+    </div>
+  </div>
+</div>
+
+<div class="filters" id="filters">
+  <button class="filter-chip active" data-filter="all">Todas <span class="count" id="countAll">30</span></button>
+  <button class="filter-chip" data-filter="FREE">🟢 Gratis <span class="count" id="countFree">0</span></button>
+  <button class="filter-chip" data-filter="TRIAL">🟡 Prueba 3 días <span class="count" id="countTrial">0</span></button>
+  <button class="filter-chip" data-filter="PREMIUM">🟣 Premium <span class="count" id="countPremium">0</span></button>
+  <button class="filter-chip" data-filter="BONUS">🔵 Bonificación <span class="count" id="countBonus">0</span></button>
+</div>
+
+<section class="section" id="tools">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Catálogo completo</span>
+      <h2 class="section-title">Encuentra la herramienta perfecta</h2>
+      <p class="section-sub">Cada herramienta está diseñada para resolver un problema real. Explora, prueba y encuentra la que necesitas.</p>
+    </div>
+    <div class="tools-grid" id="toolsGrid"></div>
+  </div>
+</section>
+
+<section class="section how-works">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Proceso simple</span>
+      <h2 class="section-title">Del caos al orden en 5 pasos</h2>
+      <p class="section-sub">Así transformamos tu forma de trabajar.</p>
+    </div>
+    <div class="hw-visual reveal">
+      <img src="imagen1.png" class="art-png glow-blue" alt="Del caos de tareas manuales al orden automatizado con Base44 Tools" loading="lazy">
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-num">1</div><h4>Explora</h4><p>Encuentra la herramienta que necesitas con el buscador o filtros.</p></div>
+      <div class="step reveal"><div class="step-num">2</div><h4>Descubre</h4><p>Conoce sus funciones, beneficios y casos de uso.</p></div>
+      <div class="step reveal"><div class="step-num">3</div><h4>Prueba</h4><p>Usa gratis las herramientas gratuitas o con prueba de 3 días.</p></div>
+      <div class="step reveal"><div class="step-num">4</div><h4>Decide</h4><p>Si te es útil, solicita acceso o adquisición directamente.</p></div>
+      <div class="step reveal"><div class="step-num">5</div><h4>Disfruta</h4><p>Utiliza la herramienta y ahorra tiempo en tu trabajo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section transform" id="transformacion">
+  <div class="container">
+    <div class="transform-grid">
+      <div class="transform-copy reveal">
+        <span class="section-tag">La Transformación Base44</span>
+        <h2 class="section-title">Deja de trabajar como en 2010</h2>
+        <div class="transform-block problem">
+          <h4>😓 El problema: agotamiento digital</h4>
+          <p>Horas perdidas creando QR manuales, escribiendo posts desde cero, transcribiendo videos y traduciendo documentos. Estrés constante y sensación de no avanzar.</p>
+        </div>
+        <div class="transform-block solution">
+          <h4>⚡ La solución: automatización inteligente</h4>
+          <p>Con Base44 Tools recuperas tu tiempo: genera contenido con IA, automatiza respuestas y optimiza procesos en segundos. Trabaja menos, logra más.</p>
+        </div>
+        <a href="#demo" class="btn btn-ghost">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Ver demo en video
+        </a>
+      </div>
+      <div class="transform-media reveal">
+        <div class="transform-frame">
+          <img src="imagen.jpg" alt="Antes y después de usar las herramientas de Base44 Tools" loading="lazy">
+          <div class="float-chip chip-1">⏱️ −80% tiempo perdido</div>
+          <div class="float-chip chip-2">🚀 Productividad multiplicada</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section demo" id="demo">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Demostración real</span>
+      <h2 class="section-title">Míralo en acción</h2>
+      <p class="section-sub">Un vistazo rápido a cómo las herramientas de Base44 trabajan por ti.</p>
+    </div>
+    <div class="video-frame reveal">
+      <video controls preload="metadata" playsinline>
+        <source src="video1.mp4" type="video/mp4">
+        Tu navegador no puede reproducir este video.
+      </video>
+    </div>
+    <div class="video-chips reveal">
+      <span>⚡ Procesamiento rápido</span>
+      <span>🖱️ Sin conocimientos técnicos</span>
+      <span>🔒 Tus datos siguen siendo tuyos</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="categorias">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Organización</span>
+      <h2 class="section-title">Categorías</h2>
+      <p class="section-sub">Herramientas organizadas por tipo de uso para que encuentres rápidamente lo que buscas.</p>
+    </div>
+    <div class="cats-grid" id="catsGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="ia" style="padding-top:20px">
+  <div class="container">
+    <div class="split reveal">
+      <div class="split-media">
+        <img src="imagen2.png" class="art-png glow-violet" alt="Inteligencia Artificial conectada a todas las herramientas" loading="lazy">
+      </div>
+      <div class="split-copy">
+        <span class="section-tag">Impulsado por IA</span>
+        <h2>Inteligencia Artificial en el núcleo de tu productividad</h2>
+        <p>Herramientas que escriben, transcriben, traducen, analizan inversiones y crean contenido por ti. La IA trabaja mientras tú tomas las decisiones.</p>
+        <button class="btn btn-primary" onclick="filterByCategory('IA')">
+          EXPLORAR HERRAMIENTAS IA
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gratis" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-head-row reveal">
+      <div>
+        <span class="section-tag" style="background:rgba(16,185,129,.15);color:#34D399;border-color:rgba(16,185,129,.3)">Sin coste</span>
+        <h2>Herramientas gratuitas</h2>
+        <p>Úsalas sin límites y descubre todo lo que puedes hacer.</p>
+      </div>
+      <a href="#" class="view-all" onclick="applyFilter('FREE');return false;">Ver todas las gratuitas →</a>
+    </div>
+    <div class="tools-grid" id="freeGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="premium">
+  <div class="container">
+    <div class="section-head-row reveal">
+      <div>
+        <span class="section-tag" style="background:rgba(139,92,246,.15);color:#A78BFA;border-color:rgba(139,92,246,.3)">Premium</span>
+        <h2>Herramientas Premium</h2>
+        <p>Soluciones avanzadas con <strong style="color:#F472B6">prueba gratis de 3 días</strong>.</p>
+      </div>
+      <a href="#" class="view-all" onclick="applyFilter('TRIAL');return false;">Ver herramientas premium →</a>
+    </div>
+    <div class="tools-grid" id="premiumGrid"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="split rev reveal">
+      <div class="split-copy">
+        <span class="section-tag" style="background:rgba(236,72,153,.15);color:#F472B6;border-color:rgba(236,72,153,.3)">Marketing</span>
+        <h2>Campañas que trabajan solas mientras tú creces</h2>
+        <p>Publicaciones masivas en WhatsApp y Telegram, anuncios con IA, códigos QR con tu marca y sorteos interactivos. Todo listo para multiplicar tu alcance.</p>
+        <button class="btn btn-primary" onclick="filterByCategory('Marketing')">
+          VER HERRAMIENTAS DE MARKETING
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </button>
+      </div>
+      <div class="split-media">
+        <img src="imagen3.png" class="art-png glow-pink" alt="Analíticas y herramientas de marketing digital" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="bonificaciones" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-head-row reveal">
+      <div>
+        <span class="section-tag" style="background:rgba(59,130,246,.15);color:#60A5FA;border-color:rgba(59,130,246,.3)">Valor añadido</span>
+        <h2>Bonificaciones</h2>
+        <p>Herramientas incluidas como valor añadido en promociones, productos o servicios.</p>
+      </div>
+    </div>
+    <div class="tools-grid" id="bonusGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="nuevas">
+  <div class="container">
+    <div class="section-head-row reveal">
+      <div>
+        <span class="section-tag" style="background:rgba(245,158,11,.15);color:#FBBF24;border-color:rgba(245,158,11,.3)">Recién llegadas</span>
+        <h2>Nuevas herramientas</h2>
+        <p>Las últimas incorporaciones a nuestro ecosistema.</p>
+      </div>
+    </div>
+    <div class="tools-grid" id="newGrid"></div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-2)" id="porque">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Por qué elegirnos</span>
+      <h2 class="section-title">¿Por qué utilizar nuestras herramientas?</h2>
+      <p class="section-sub">No vendemos software: entregamos tiempo, resultados y tranquilidad.</p>
+    </div>
+    <div class="why-layout">
+      <div class="reveal">
+        <div class="why-media">
+          <img src="imagen6.jpg" alt="Tecnología de inteligencia artificial sostenida en la mano: el poder de Base44 Tools" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+        </div>
+        <div class="why-caption">
+          <div class="cap-icon">🤖</div>
+          <span>Tecnología que trabaja por ti: IA y automatización al servicio de tu día a día.</span>
+        </div>
+      </div>
+      <div class="why-cards">
+        <div class="why-card reveal">
+          <span class="num">01</span>
+          <div class="why-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+          <h3>Soluciones prácticas</h3>
+          <p>Herramientas diseñadas para resolver necesidades reales del día a día.</p>
+        </div>
+        <div class="why-card reveal">
+          <span class="num">02</span>
+          <div class="why-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <h3>Ahorra tiempo</h3>
+          <p>Automatiza tareas repetitivas y simplifica procesos que antes te consumían horas.</p>
+        </div>
+        <div class="why-card reveal">
+          <span class="num">03</span>
+          <div class="why-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <h3>Gratis cuando corresponde</h3>
+          <p>Muchas herramientas pueden utilizarse gratuitamente y sin límites.</p>
+        </div>
+        <div class="why-card reveal">
+          <span class="num">04</span>
+          <div class="why-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg></div>
+          <h3>Prueba antes de decidir</h3>
+          <p>Las herramientas premium pueden probarse durante 3 días sin compromiso.</p>
+        </div>
+        <div class="why-card reveal">
+          <span class="num">05</span>
+          <div class="why-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+          <h3>Crecimiento continuo</h3>
+          <p>Nuevas herramientas se incorporan progresivamente al ecosistema.</p>
+        </div>
+        <div class="why-card reveal">
+          <span class="num">06</span>
+          <div class="why-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></div>
+          <h3>Atención directa</h3>
+          <p>Comunicación directa con el creador. Sin intermediarios, sin bots.</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-cta reveal">
+      <div>
+        <h3>¿Listo para trabajar menos y lograr más?</h3>
+        <p>Explora el catálogo completo o escríbeme y te ayudo a elegir la herramienta ideal.</p>
+      </div>
+      <div class="why-cta-btns">
+        <a href="#tools" class="btn btn-primary">EXPLORAR HERRAMIENTAS</a>
+        <a href="#contacto" class="btn btn-ghost">CONTACTAR AHORA</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="growth reveal">
+      <div class="growth-content">
+        <span class="section-tag">Visión de futuro</span>
+        <h2>Esto acaba de empezar</h2>
+        <p>Nuestro catálogo está en constante crecimiento. Nuevas herramientas, nuevas soluciones y nuevas posibilidades se incorporarán progresivamente.</p>
+        <div class="growth-stages">
+          <div class="stage current"><div class="stage-num" id="currentStage">30+</div><div class="stage-label">Herramientas ahora</div></div>
+          <div class="stage-arrow">→</div>
+          <div class="stage"><div class="stage-num">50+</div><div class="stage-label">Próximamente</div></div>
+          <div class="stage-arrow">→</div>
+          <div class="stage"><div class="stage-num">100+</div><div class="stage-label">En el futuro</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="creador">
+  <div class="container">
+    <div class="creator reveal">
+      <div class="creator-main">
+        <img src="Rauly.jpg" alt="Raúl Cordero García, creador de Base44 Tools" class="creator-photo">
+        <div>
+          <h3>Raúl Cordero García</h3>
+          <div class="role">Creador de Base44 Tools</div>
+          <p>¿Tienes dudas o necesitas una herramienta específica? Estoy disponible para ayudarte a encontrar la solución adecuada para tu necesidad. Respondo personalmente por WhatsApp, Telegram o correo.</p>
+          <div class="creator-contacts">
+            <a href="https://wa.me/5355081288?text=Hola%20Ra%C3%BAl%2C%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20Base44%20Tools" target="_blank" class="contact-btn contact-btn-wa">WhatsApp</a>
+            <a href="https://t.me/Raulylg" target="_blank" class="contact-btn contact-btn-tg">Telegram</a>
+            <a href="mailto:corderorauly@gmail.com?subject=Consulta%20sobre%20Base44%20Tools" class="contact-btn contact-btn-mail">Email</a>
+          </div>
+        </div>
+      </div>
+      <div class="creator-visual">
+        <img src="imagen4.png" class="art-png glow-green" alt="Canales de contacto directo: WhatsApp, Telegram y correo electrónico" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" id="contacto">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo"><div class="logo-mark">B44</div><span>Base44 Tools</span></a>
+        <p>Ecosistema profesional de herramientas digitales para potenciar tu productividad.</p>
+      </div>
+      <div class="footer-col"><h4>Plataforma</h4><ul><li><a href="#home">Inicio</a></li><li><a href="#tools">Herramientas</a></li><li><a href="#gratis">Gratis</a></li><li><a href="#premium">Premium</a></li><li><a href="#bonificaciones">Bonificaciones</a></li><li><a href="#nuevas">Nuevas</a></li></ul></div>
+      <div class="footer-col"><h4>Categorías</h4><ul><li><a href="#" onclick="filterByCategory('IA');return false;">Inteligencia Artificial</a></li><li><a href="#" onclick="filterByCategory('Marketing');return false;">Marketing</a></li><li><a href="#" onclick="filterByCategory('Productividad');return false;">Productividad</a></li><li><a href="#" onclick="filterByCategory('Diseño');return false;">Diseño</a></li><li><a href="#" onclick="filterByCategory('Utilidades');return false;">Utilidades</a></li></ul></div>
+      <div class="footer-col"><h4>Recursos</h4><ul><li><a href="#demo">Demo en video</a></li><li><a href="#">Guías</a></li><li><a href="#">Blog (próximamente)</a></li></ul></div>
+      <div class="footer-col"><h4>Soporte</h4><ul><li><a href="https://wa.me/5355081288" target="_blank">WhatsApp</a></li><li><a href="https://t.me/Raulylg" target="_blank">Telegram</a></li><li><a href="mailto:corderorauly@gmail.com">Email</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Base44 Tools. Todos los derechos reservados.</span>
+      <span>Privacidad · Términos · Cookies</span>
+    </div>
+  </div>
+</footer>
+
+<div class="floating" id="floating">
+  <div class="floating-menu">
+    <a href="https://t.me/Raulylg" target="_blank" class="floating-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>Telegram</a>
+    <a href="mailto:corderorauly@gmail.com" class="floating-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>Email</a>
+  </div>
+  <button class="floating-main" id="floatingBtn" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </button>
+</div>
+
+<div class="modal" id="modal"><div class="modal-content" id="modalContent"></div></div>
+
+<script src="herramientas.js"></script>
+<script>
+function stripWhiteBackground(img){
+  if(img.dataset.bgdone) return;
+  img.dataset.bgdone='1';
+  try{
+    const nw=img.naturalWidth, nh=img.naturalHeight;
+    if(!nw||!nh) return;
+    const scale=Math.min(1, 1200/nw);
+    const w=Math.round(nw*scale), h=Math.round(nh*scale);
+    const cv=document.createElement('canvas'); cv.width=w; cv.height=h;
+    const ctx=cv.getContext('2d',{willReadFrequently:true});
+    ctx.drawImage(img,0,0,w,h);
+    const id=ctx.getImageData(0,0,w,h);
+    const d=id.data;
+    const isBg=(i)=>{
+      const a=d[i+3];
+      if(a<8) return true;
+      const r=d[i],g=d[i+1],b=d[i+2];
+      const mn=Math.min(r,g,b), mx=Math.max(r,g,b);
+      return mn>=238 && (mx-mn)<=16;
+    };
+    const marked=new Uint8Array(w*h);
+    const stack=[];
+    const push=(x,y)=>{const p=y*w+x; if(!marked[p] && isBg(p*4)){marked[p]=1; stack.push(p);} };
+    for(let x=0;x<w;x++){push(x,0); push(x,h-1);}
+    for(let y=0;y<h;y++){push(0,y); push(w-1,y);}
+    while(stack.length){
+      const p=stack.pop();
+      const x=p%w, y=(p-x)/w;
+      if(x>0){const q=p-1; if(!marked[q]&&isBg(q*4)){marked[q]=1;stack.push(q);}}
+      if(x<w-1){const q=p+1; if(!marked[q]&&isBg(q*4)){marked[q]=1;stack.push(q);}}
+      if(y>0){const q=p-w; if(!marked[q]&&isBg(q*4)){marked[q]=1;stack.push(q);}}
+      if(y<h-1){const q=p+w; if(!marked[q]&&isBg(q*4)){marked[q]=1;stack.push(q);}}
+    }
+    for(let p=0;p<w*h;p++){ if(marked[p]) d[p*4+3]=0; }
+    for(let y=0;y<h;y++)for(let x=0;x<w;x++){
+      const p=y*w+x; if(marked[p]) continue;
+      const adj=(x>0&&marked[p-1])||(x<w-1&&marked[p+1])||(y>0&&marked[p-w])||(y<h-1&&marked[p+w]);
+      if(adj){
+        const i=p*4;
+        const lum=0.299*d[i]+0.587*d[i+1]+0.114*d[i+2];
+        if(lum>205){ const t=Math.min(1,(lum-205)/50); d[i+3]=Math.round(d[i+3]*(1-t*0.9)); }
+      }
+    }
+    ctx.putImageData(id,0,0);
+    img.src=cv.toDataURL('image/png');
+  }catch(e){
+    img.classList.add('art-fallback');
+  }
+}
+function initArt(){
+  document.querySelectorAll('img.art-png').forEach(img=>{
+    img.addEventListener('error',()=>img.classList.add('art-fallback'),{once:true});
+    if(img.complete && img.naturalWidth) stripWhiteBackground(img);
+    else img.addEventListener('load',()=>stripWhiteBackground(img),{once:true});
+  });
+}
+window.addEventListener('load',initArt);
+
+const TOOLS = window.HERRAMIENTAS || [];
+
+const CATEGORIES = [
+  {id:'IA',name:'Inteligencia Artificial',icon:'🤖'},
+  {id:'Marketing',name:'Marketing',icon:'📢'},
+  {id:'Productividad',name:'Productividad',icon:'⚡'},
+  {id:'Diseño',name:'Diseño',icon:'🎨'},
+  {id:'Utilidades',name:'Utilidades',icon:'🛠️'}
+];
+
+const CAT_THEMES = {
+  'IA':'linear-gradient(135deg,#4C1D95 0%,#7C3AED 55%,#4F46E5 100%)',
+  'Marketing':'linear-gradient(135deg,#831843 0%,#EC4899 55%,#F59E0B 100%)',
+  'Productividad':'linear-gradient(135deg,#064E3B 0%,#10B981 55%,#0EA5E9 100%)',
+  'Diseño':'linear-gradient(135deg,#312E81 0%,#6366F1 50%,#EC4899 100%)',
+  'Utilidades':'linear-gradient(135deg,#0C4A6E 0%,#0EA5E9 55%,#6366F1 100%)'
+};
+
+const WA_PHONE='5355081288';
+const WA_GENERAL='https://wa.me/'+WA_PHONE+'?text='+encodeURIComponent('Hola Raúl, visité Base44 Tools y me gustaría más información.');
+
+const grid=document.getElementById('toolsGrid'),freeGrid=document.getElementById('freeGrid'),
+premiumGrid=document.getElementById('premiumGrid'),bonusGrid=document.getElementById('bonusGrid'),
+newGrid=document.getElementById('newGrid'),catsGrid=document.getElementById('catsGrid');
+
+function getTypeBadge(t){return{FREE:'<span class="badge badge-free">🟢 GRATIS</span>',PREMIUM:'<span class="badge badge-premium">🟣 PREMIUM</span>',TRIAL:'<span class="badge badge-trial">🟡 PRUEBA 3 DÍAS</span>',BONUS:'<span class="badge badge-bonus">🔵 BONIFICACIÓN</span>'}[t]||'';}
+function getStatusBadges(t){let h='';if(t.isNew)h+='<span class="badge badge-new">🆕 NUEVA</span>';if(t.isFeatured)h+='<span class="badge badge-featured">⭐ DESTACADA</span>';if(t.isPopular)h+='<span class="badge badge-popular">🔥 POPULAR</span>';return h;}
+function getPrimaryBtn(t){
+  if(t.url) return `<a class="tool-btn tool-btn-primary" href="${t.url}" target="_blank" rel="noopener" onclick="event.stopPropagation();">🚀 USAR AHORA</a>`;
+  const l=t.type==='FREE'?'USAR HERRAMIENTA':t.type==='TRIAL'?'PROBAR 3 DÍAS':t.type==='BONUS'?'OBTENER BONO':'ME INTERESA';
+  return `<button class="tool-btn tool-btn-primary" onclick="openTool('${t.id}');event.stopPropagation();">${l}</button>`;
+}
+
+function renderTool(tool){
+  const grad=CAT_THEMES[tool.cat]||CAT_THEMES['Utilidades'];
+  return `
+  <article class="tool-card" onclick="openTool('${tool.id}')">
+    <div class="tool-banner" style="background:${grad}">
+      <div class="banner-icon">${tool.icon}</div>
+      <div class="banner-badges">${getTypeBadge(tool.type)}${getStatusBadges(tool)}</div>
+      <div class="banner-cat">${tool.cat}</div>
+    </div>
+    <div class="tool-body">
+      <h3>${tool.name}</h3>
+      <p class="tool-desc">${tool.shortDesc}</p>
+      <div class="tool-benefit">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        <span>${tool.benefit}</span>
+      </div>
+      <div class="tool-actions">
+        ${getPrimaryBtn(tool)}
+        <button class="tool-btn tool-btn-ghost" onclick="openTool('${tool.id}');event.stopPropagation();">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Info
+        </button>
+      </div>
+    </div>
+  </article>`;
+}
+
+function renderAll(){
+  if(!TOOLS.length){
+    grid.innerHTML='<div class="empty-state"><h3>Falta el archivo herramientas.js</h3><p>Súbelo junto a index.html en la misma carpeta y recarga la página.</p></div>';
+    return;
+  }
+  grid.innerHTML=TOOLS.map(renderTool).join('');
+  const free=TOOLS.filter(t=>t.type==='FREE');
+  freeGrid.innerHTML=free.slice(0,3).map(renderTool).join('');
+  const prem=TOOLS.filter(t=>t.type==='TRIAL'||t.type==='PREMIUM');
+  premiumGrid.innerHTML=prem.slice(0,3).map(renderTool).join('');
+  bonusGrid.innerHTML=TOOLS.filter(t=>t.type==='BONUS').map(renderTool).join('');
+  newGrid.innerHTML=TOOLS.filter(t=>t.isNew).slice(0,6).map(renderTool).join('');
+  document.getElementById('countAll').textContent=TOOLS.length;
+  document.getElementById('countFree').textContent=free.length;
+  document.getElementById('countTrial').textContent=TOOLS.filter(t=>t.type==='TRIAL').length;
+  document.getElementById('countPremium').textContent=TOOLS.filter(t=>t.type==='PREMIUM').length;
+  document.getElementById('countBonus').textContent=TOOLS.filter(t=>t.type==='BONUS').length;
+  document.getElementById('toolCount').textContent=TOOLS.length;
+  document.getElementById('statTools').textContent=TOOLS.length;
+  document.getElementById('currentStage').textContent=TOOLS.length+'+';
+  const allCats=CATEGORIES.map(c=>c.id);
+  TOOLS.forEach(t=>{if(!allCats.includes(t.cat))allCats.push(t.cat);});
+  catsGrid.innerHTML=allCats.map(id=>{
+    const base=CATEGORIES.find(c=>c.id===id);
+    const n=TOOLS.filter(t=>t.cat===id).length;
+    return `<div class="cat-card" onclick="filterByCategory('${id}')">
+      <div class="cat-icon" style="background:${CAT_THEMES[id]||CAT_THEMES.Utilidades}">${base?base.icon:'🧰'}</div>
+      <h3>${base?base.name:id}</h3><div class="count">${n} herramientas</div></div>`;
+  }).join('');
+}
+
+const modal=document.getElementById('modal'),modalContent=document.getElementById('modalContent');
+function buildWaMsg(tool){
+  const tpl={FREE:`Hola Raúl, me interesa usar la herramienta gratuita "${tool.name}". ¿Podrías indicarme cómo acceder?`,
+    PREMIUM:`Hola Raúl, estoy interesado en la herramienta "${tool.name}". Quisiera conocer el precio y condiciones de acceso.`,
+    TRIAL:`Hola Raúl, me interesa la herramienta "${tool.name}". Quiero información y activar mi prueba gratuita de 3 días.`,
+    BONUS:`Hola Raúl, me interesa la bonificación "${tool.name}". ¿En qué promoción o producto está incluida?`};
+  return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(tpl[tool.type])}`;
+}
+const WA_SVG='<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>';
+const TG_SVG='<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>';
+const MAIL_SVG='<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>';
+
+function openTool(id){
+  const tool=TOOLS.find(t=>t.id===id); if(!tool)return;
+  const waUrl=buildWaMsg(tool),tgUrl='https://t.me/Raulylg',
+  mailUrl=`mailto:corderorauly@gmail.com?subject=${encodeURIComponent('Consulta sobre '+tool.name)}&body=${encodeURIComponent('Hola Raúl,\n\nMe interesa la herramienta '+tool.name+' y me gustaría obtener más información.\n\nGracias.')}`;
+  const grad=CAT_THEMES[tool.cat]||CAT_THEMES['Utilidades'];
+  modalContent.innerHTML=`
+    <button class="modal-close" onclick="closeModal()" aria-label="Cerrar"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    <div class="modal-banner" style="background:${grad}"><div class="banner-icon">${tool.icon}</div></div>
+    <div class="modal-hero">
+      <div class="modal-badges">${getTypeBadge(tool.type)}${getStatusBadges(tool)}<span class="badge badge-featured">${tool.dist}</span></div>
+      <h1>${tool.name}</h1>
+      <p class="modal-tagline">${tool.fullDesc}</p>
+      <div class="modal-ctas">
+        ${tool.url?`<a href="${tool.url}" target="_blank" rel="noopener" class="btn btn-primary">🚀 ABRIR HERRAMIENTA AHORA</a>`:''}
+        <a href="${waUrl}" target="_blank" class="${tool.url?'btn btn-ghost':'btn btn-primary'}">${WA_SVG} ${tool.url?'PEDIR INFORMACIÓN POR WHATSAPP':'CONTACTAR POR WHATSAPP'}</a>
+        <a href="${tgUrl}" target="_blank" class="btn btn-ghost">${TG_SVG} Telegram</a>
+        <a href="${mailUrl}" class="btn btn-ghost">${MAIL_SVG} Email</a>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section"><h2><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>¿Qué puedes hacer?</h2>
+        <div class="features-grid">${tool.features.map(f=>`<div class="feature-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span>${f}</span></div>`).join('')}</div></div>
+      <div class="modal-section"><h2><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Beneficios concretos</h2>
+        <div class="benefits-list">${tool.benefits.map(b=>`<div class="benefit-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div><h4>${b.t}</h4><p>${b.d}</p></div></div>`).join('')}</div></div>
+      <div class="modal-section"><h2><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>¿Cómo funciona?</h2>
+        <div class="steps-list">${tool.steps.map((s,i)=>`<div class="step-item"><div><h4>Paso ${i+1}</h4><p>${s}</p></div></div>`).join('')}</div></div>
+      <div class="modal-section"><h2><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>Ideal para</h2>
+        <div class="features-grid">${tool.audience.map(a=>`<div class="feature-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg><span>${a}</span></div>`).join('')}</div></div>
+      <div class="modal-cta-final"><h3>¿Quieres utilizar ${tool.name}?</h3><p>Habla directamente conmigo. Te responderé personalmente.</p>
+        <div class="btns">
+          ${tool.url?`<a href="${tool.url}" target="_blank" rel="noopener" class="btn btn-primary">🚀 ABRIR AHORA</a>`:''}
+          <a href="${waUrl}" target="_blank" class="btn ${tool.url?'btn-ghost':'btn-primary'}">${WA_SVG} WHATSAPP</a>
+          <a href="${tgUrl}" target="_blank" class="btn btn-ghost">Telegram</a>
+          <a href="${mailUrl}" class="btn btn-ghost">Email</a>
+        </div>
+      </div>
+    </div>`;
+  modal.classList.add('open');document.body.classList.add('no-scroll');
+}
+function closeModal(){modal.classList.remove('open');document.body.classList.remove('no-scroll');}
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+let currentFilter='all',currentSearch='';
+function applyFilter(f){
+  currentFilter=f;
+  document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
+  const b=document.querySelector(`.filter-chip[data-filter="${f}"]`); if(b)b.classList.add('active');
+  renderFiltered();
+}
+function renderFiltered(){
+  let list=TOOLS;
+  if(currentFilter!=='all'){
+    list=currentFilter==='TRIAL'?list.filter(t=>t.type==='TRIAL'||t.type==='PREMIUM'):list.filter(t=>t.type===currentFilter);
+  }
+  if(currentSearch){
+    const q=currentSearch.toLowerCase();
+    list=list.filter(t=>t.name.toLowerCase().includes(q)||t.cat.toLowerCase().includes(q)||t.shortDesc.toLowerCase().includes(q)||t.fullDesc.toLowerCase().includes(q)||t.benefit.toLowerCase().includes(q)||t.features.some(f=>f.toLowerCase().includes(q))||t.audience.some(a=>a.toLowerCase().includes(q)));
+  }
+  grid.innerHTML=list.length?list.map(renderTool).join(''):`
+    <div class="empty-state">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <h3>No encontramos herramientas con ese criterio</h3><p>Prueba con otra búsqueda o explora todas las herramientas.</p>
+      <button class="btn btn-primary" onclick="resetFilters()">Ver todas las herramientas</button>
+    </div>`;
+  document.getElementById('tools').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function resetFilters(){
+  currentFilter='all';currentSearch='';
+  document.getElementById('searchInput').value='';
+  document.getElementById('clearSearch').classList.remove('visible');
+  document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
+  document.querySelector('.filter-chip[data-filter="all"]').classList.add('active');
+  grid.innerHTML=TOOLS.map(renderTool).join('');
+}
+document.querySelectorAll('.filter-chip').forEach(b=>b.addEventListener('click',()=>applyFilter(b.dataset.filter)));
+const searchInput=document.getElementById('searchInput'),clearBtn=document.getElementById('clearSearch');
+searchInput.addEventListener('input',e=>{currentSearch=e.target.value;clearBtn.classList.toggle('visible',currentSearch.length>0);renderFiltered();});
+clearBtn.addEventListener('click',()=>{searchInput.value='';currentSearch='';clearBtn.classList.remove('visible');renderFiltered();searchInput.focus();});
+document.querySelectorAll('.suggestion-chip[data-search]').forEach(c=>c.addEventListener('click',()=>{searchInput.value=c.dataset.search;currentSearch=c.dataset.search;clearBtn.classList.add('visible');renderFiltered();}));
+function filterByCategory(cat){searchInput.value=cat;currentSearch=cat;clearBtn.classList.add('visible');renderFiltered();}
+
+const nav=document.getElementById('nav'),filtersBar=document.getElementById('filters');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50);filtersBar.classList.toggle('scrolled',window.scrollY>400);});
+document.getElementById('menuToggle').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+document.querySelectorAll('.nav-link,.nav-cta').forEach(l=>l.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+const floating=document.getElementById('floating'),floatingBtn=document.getElementById('floatingBtn');
+floatingBtn.addEventListener('click',()=>{
+  if(floating.classList.contains('open')){window.open(WA_GENERAL,'_blank');}
+  else{floating.classList.add('open');}
+});
+if(window.innerWidth>768){
+  floating.addEventListener('mouseenter',()=>floating.classList.add('open'));
+  floating.addEventListener('mouseleave',()=>floating.classList.remove('open'));
+}
+const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}}),{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+renderAll();
+</script>
+</body>
+</html>
