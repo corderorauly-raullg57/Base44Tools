@@ -4,11 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0A0A0F">
-<title>Base44 Tools — Ecosistema profesional de herramientas digitales</title>
-<meta name="description" content="Descubre +30 herramientas digitales para simplificar tareas, automatizar procesos y potenciar tu productividad. Gratuitas y premium con prueba de 3 días.">
-<meta property="og:title" content="Base44 Tools — Herramientas digitales para hacer más, en menos tiempo">
-<meta property="og:description" content="Ecosistema profesional de herramientas digitales. IA, Marketing, Productividad, Diseño y Utilidades.">
+<title>Herramix — Herramientas de video, apps y oficina. Pago único, desde $5</title>
+<meta name="description" content="Edita y subtitula videos, crea tu app Android y pasa documentos a texto. Pruébalas 3 días gratis y paga una sola vez, desde $5. Más 18 herramientas gratis.">
+<meta property="og:title" content="Herramientas que trabajan por ti — pago único, desde $5">
+<meta property="og:description" content="Videos con subtítulos, tu app Android y documentos a texto. Prueba 3 días gratis. Sin suscripciones. +18 herramientas gratis.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://corderorauly-raullg57.github.io/Herramix/">
+<meta property="og:image" content="https://corderorauly-raullg57.github.io/Herramix/vista-previa.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -338,20 +343,64 @@ img.art-png{transition:filter .4s var(--ease)}
   .floating{bottom:16px;right:16px}
   .floating-main{width:52px;height:52px}
 }
+
+/* ===== Packs, precios y compra ===== */
+.packs{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%)}
+.packs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+@media(max-width:1000px){.packs-grid{grid-template-columns:1fr;max-width:520px;margin:0 auto}}
+.pack{position:relative;background:var(--surface);border:1px solid var(--border-2);border-radius:var(--radius-xl);padding:28px;display:flex;flex-direction:column}
+.pack.featured{border-color:var(--primary);box-shadow:0 0 0 1px var(--primary),var(--shadow-glow)}
+.pack-flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--primary);color:#fff;font-size:12px;font-weight:700;padding:5px 14px;border-radius:100px;white-space:nowrap}
+.pack-icon{font-size:34px;margin-bottom:12px}
+.pack h3{font-size:22px;font-weight:800;letter-spacing:-.01em}
+.pack-who{color:var(--secondary);font-size:13px;font-weight:600;margin:6px 0 12px}
+.pack-hook{color:var(--text-2);font-size:15px;margin-bottom:18px}
+.pack-price{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.pack-price .now{font-size:44px;font-weight:900;letter-spacing:-.03em}
+.pack-price .was{color:var(--text-4);text-decoration:line-through;font-size:18px}
+.pack-price .save{background:rgba(16,185,129,.15);color:#34D399;font-size:12px;font-weight:700;padding:3px 8px;border-radius:100px}
+.pack-terms{color:var(--text-3);font-size:13px;margin-bottom:18px}
+.pack ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;flex:1}
+.pack li{display:flex;gap:10px;font-size:14px;color:var(--text-2)}
+.pack li::before{content:"✓";color:var(--secondary);font-weight:800}
+.pack-btns{display:flex;flex-direction:column;gap:10px}
+.pack-btns .btn{justify-content:center;width:100%}
+.btn-wa{background:#22C55E;color:#06210f;font-weight:700}
+.btn-wa:hover{background:#16A34A}
+.pack-total{margin-top:32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;background:var(--surface-2);border:1px dashed var(--border-2);border-radius:var(--radius-lg);padding:24px 28px}
+.pack-total h3{font-size:20px;font-weight:800}
+.pack-total p{color:var(--text-3);font-size:14px}
+.pack-total .now{font-size:32px;font-weight:900}
+.pack-total .was{color:var(--text-4);text-decoration:line-through;margin-left:8px}
+.buy-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:800px){.buy-steps{grid-template-columns:1fr}}
+.buy-step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px}
+.buy-num{width:40px;height:40px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:14px}
+.buy-step h4{font-size:18px;margin-bottom:6px}
+.buy-step p{color:var(--text-2);font-size:14px}
+.pay-methods{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+.pay-label{font-weight:700;color:var(--text-2)}
+.pay-chip{background:var(--surface-2);border:1px solid var(--border-2);padding:8px 14px;border-radius:100px;font-size:14px;font-weight:600}
+.pay-note{color:var(--text-3);font-size:13px;width:100%;text-align:center}
+.tool-price{display:flex;align-items:baseline;gap:6px;margin-bottom:12px;font-size:13px;color:var(--text-3)}
+.tool-price strong{font-size:20px;color:var(--text);font-weight:800}
+.tool-price.free strong{color:#34D399;font-size:16px}
+.modal-price{display:flex;align-items:baseline;gap:10px;margin:0 0 18px}
+.modal-price strong{font-size:36px;font-weight:900}
+.modal-price span{color:var(--text-3)}
 </style>
 </head>
 <body>
 
 <nav class="nav" id="nav">
   <div class="container nav-inner">
-    <a href="#home" class="logo"><div class="logo-mark">B44</div><span>Base44 Tools</span></a>
+    <a href="#home" class="logo"><div class="logo-mark">Hx</div><span>Herramix</span></a>
     <div class="nav-links" id="navLinks">
       <a href="#home" class="nav-link">Inicio</a>
-      <a href="#tools" class="nav-link">Herramientas</a>
+      <a href="#tools" class="nav-link">Catálogo</a>
+      <a href="#packs" class="nav-link">Precios</a>
       <a href="#gratis" class="nav-link">Gratis</a>
-      <a href="#premium" class="nav-link">Premium</a>
-      <a href="#bonificaciones" class="nav-link">Bonificaciones</a>
-      <a href="#nuevas" class="nav-link">Nuevas</a>
+      <a href="#comprar" class="nav-link">Cómo comprar</a>
       <a href="#demo" class="nav-link">Demo</a>
       <a href="#creador" class="nav-link">Sobre mí</a>
       <a href="#contacto" class="nav-cta">Contactar</a>
@@ -367,28 +416,72 @@ img.art-png{transition:filter .4s var(--ease)}
   <div class="container">
     <div class="hero-layout">
       <div class="hero-copy reveal">
-        <div class="hero-badge"><span class="pulse-dot"></span><span><strong id="toolCount">30</strong> herramientas y creciendo continuamente</span></div>
-        <h1>Herramientas digitales para hacer más,<br><span class="gradient-text">en menos tiempo.</span></h1>
-        <p class="hero-sub">Descubre herramientas creadas para simplificar tareas, automatizar procesos, crear contenido y potenciar tu productividad.</p>
+        <div class="hero-badge"><span class="pulse-dot"></span><span>Pago único · Sin suscripciones · <strong>Prueba 3 días gratis</strong></span></div>
+        <h1>Herramientas que trabajan por ti,<br><span class="gradient-text">sin pagar cada mes.</span></h1>
+        <p class="hero-sub">Subtitula y edita tus videos, crea la app Android de tu negocio o pasa documentos y audios a texto. Pruébalas 3 días y paga solo si te sirven: <strong style="color:var(--text)">desde $5, una sola vez</strong>.</p>
         <div class="hero-ctas">
-          <a href="#tools" class="btn btn-primary">EXPLORAR HERRAMIENTAS
+          <a href="#packs" class="btn btn-primary">VER PRECIOS Y PACKS
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
-          <a href="#contacto" class="btn btn-ghost">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-            CONTACTAR AHORA
-          </a>
+          <a href="#gratis" class="btn btn-ghost">🎁 EMPIEZA GRATIS</a>
         </div>
         <div class="hero-stats">
-          <div class="stat"><div class="stat-num" id="statTools">30</div><div class="stat-label">Herramientas</div></div>
-          <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Soporte humano</div></div>
+          <div class="stat"><div class="stat-num">$5</div><div class="stat-label">Precio desde</div></div>
           <div class="stat"><div class="stat-num">3 días</div><div class="stat-label">Prueba gratis</div></div>
-          <div class="stat"><div class="stat-num">5</div><div class="stat-label">Categorías</div></div>
+          <div class="stat"><div class="stat-num" id="statFree">18</div><div class="stat-label">Herramientas gratis</div></div>
+          <div class="stat"><div class="stat-num" id="statTools">30</div><div class="stat-label">En total</div></div>
         </div>
       </div>
       <div class="hero-visual reveal">
-        <img src="imagen5.png" class="art-png glow-indigo" alt="Ecosistema de herramientas digitales Base44 Tools">
+        <img src="imagen5.png" class="art-png glow-indigo" alt="Ecosistema de herramientas digitales Herramix">
       </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section packs" id="packs">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Precios claros</span>
+      <h2 class="section-title">Elige lo que necesitas</h2>
+      <p class="section-sub">Pruébalo 3 días gratis. Si te sirve, pagas una sola vez y es tuyo. Sin suscripciones.</p>
+    </div>
+    <div class="packs-grid" id="packsGrid"></div>
+    <div class="pack-total reveal" id="packTotal"></div>
+  </div>
+</section>
+
+<section class="section" id="gratis" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-head-row reveal">
+      <div>
+        <span class="section-tag" style="background:rgba(16,185,129,.15);color:#34D399;border-color:rgba(16,185,129,.3)">Sin coste</span>
+        <h2>Empieza gratis, sin registrarte</h2>
+        <p>Estas herramientas son gratis para siempre. Úsalas ahora y, si te gustan, mira las de pago.</p>
+      </div>
+      <a href="#" class="view-all" onclick="applyFilter('FREE');return false;">Ver las <span id="freeCount2">18</span> gratuitas →</a>
+    </div>
+    <div class="tools-grid" id="freeGrid"></div>
+  </div>
+</section>
+
+<section class="section buy" id="comprar">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Cómo comprar</span>
+      <h2 class="section-title">Comprar es fácil y seguro</h2>
+      <p class="section-sub">Sin tarjeta y sin registrarte en ningún sitio. Hablas directamente conmigo.</p>
+    </div>
+    <div class="buy-steps">
+      <div class="buy-step reveal"><div class="buy-num">1</div><h4>Pruébala gratis</h4><p>Úsala 3 días sin pagar nada. Así compruebas que te sirve antes de decidir.</p></div>
+      <div class="buy-step reveal"><div class="buy-num">2</div><h4>Escríbeme y paga</h4><p>Pulsa “Comprar por WhatsApp”. Te paso mi usuario de QvaPay para que hagas el pago.</p></div>
+      <div class="buy-step reveal"><div class="buy-num">3</div><h4>Recibe tu activación</h4><p>Te envío tu clave o acceso por WhatsApp y te ayudo con la instalación si lo necesitas.</p></div>
+    </div>
+    <div class="pay-methods reveal">
+      <span class="pay-label">Forma de pago:</span>
+      <span class="pay-chip">💳 QvaPay</span>
+      <span class="pay-note">¿Aún no tienes QvaPay? Escríbeme y te explico paso a paso cómo crear tu cuenta gratis.</span>
     </div>
   </div>
 </section>
@@ -441,7 +534,7 @@ img.art-png{transition:filter .4s var(--ease)}
       <p class="section-sub">Así transformamos tu forma de trabajar.</p>
     </div>
     <div class="hw-visual reveal">
-      <img src="imagen1.png" class="art-png glow-blue" alt="Del caos de tareas manuales al orden automatizado con Base44 Tools" loading="lazy">
+      <img src="imagen1.png" class="art-png glow-blue" alt="Del caos de tareas manuales al orden automatizado con Herramix" loading="lazy">
     </div>
     <div class="steps">
       <div class="step reveal"><div class="step-num">1</div><h4>Explora</h4><p>Encuentra la herramienta que necesitas con el buscador o filtros.</p></div>
@@ -457,7 +550,7 @@ img.art-png{transition:filter .4s var(--ease)}
   <div class="container">
     <div class="transform-grid">
       <div class="transform-copy reveal">
-        <span class="section-tag">La Transformación Base44</span>
+        <span class="section-tag">La transformación Herramix</span>
         <h2 class="section-title">Deja de trabajar como en 2010</h2>
         <div class="transform-block problem">
           <h4>😓 El problema: agotamiento digital</h4>
@@ -465,7 +558,7 @@ img.art-png{transition:filter .4s var(--ease)}
         </div>
         <div class="transform-block solution">
           <h4>⚡ La solución: automatización inteligente</h4>
-          <p>Con Base44 Tools recuperas tu tiempo: genera contenido con IA, automatiza respuestas y optimiza procesos en segundos. Trabaja menos, logra más.</p>
+          <p>Con Herramix recuperas tu tiempo: genera contenido con IA, automatiza respuestas y optimiza procesos en segundos. Trabaja menos, logra más.</p>
         </div>
         <a href="#demo" class="btn btn-ghost">
           <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -474,8 +567,8 @@ img.art-png{transition:filter .4s var(--ease)}
       </div>
       <div class="transform-media reveal">
         <div class="transform-frame">
-          <img src="imagen.jpg" alt="Antes y después de usar las herramientas de Base44 Tools" loading="lazy">
-          <div class="float-chip chip-1">⏱️ −80% tiempo perdido</div>
+          <img src="imagen.jpg" alt="Antes y después de usar las herramientas de Herramix" loading="lazy">
+          <div class="float-chip chip-1">⏱️ Menos tareas a mano</div>
           <div class="float-chip chip-2">🚀 Productividad multiplicada</div>
         </div>
       </div>
@@ -488,11 +581,11 @@ img.art-png{transition:filter .4s var(--ease)}
     <div class="section-head reveal">
       <span class="section-tag">Demostración real</span>
       <h2 class="section-title">Míralo en acción</h2>
-      <p class="section-sub">Un vistazo rápido a cómo las herramientas de Base44 trabajan por ti.</p>
+      <p class="section-sub">Un vistazo rápido a cómo las herramientas de Herramix trabajan por ti.</p>
     </div>
     <div class="video-frame reveal">
       <video controls preload="metadata" playsinline>
-        <source src="video1.mp4" type="video/mp4">
+        <source src="VIDEO1.mp4" type="video/mp4">
         Tu navegador no puede reproducir este video.
       </video>
     </div>
@@ -534,33 +627,7 @@ img.art-png{transition:filter .4s var(--ease)}
   </div>
 </section>
 
-<section class="section" id="gratis" style="background:var(--bg-2)">
-  <div class="container">
-    <div class="section-head-row reveal">
-      <div>
-        <span class="section-tag" style="background:rgba(16,185,129,.15);color:#34D399;border-color:rgba(16,185,129,.3)">Sin coste</span>
-        <h2>Herramientas gratuitas</h2>
-        <p>Úsalas sin límites y descubre todo lo que puedes hacer.</p>
-      </div>
-      <a href="#" class="view-all" onclick="applyFilter('FREE');return false;">Ver todas las gratuitas →</a>
-    </div>
-    <div class="tools-grid" id="freeGrid"></div>
-  </div>
-</section>
 
-<section class="section" id="premium">
-  <div class="container">
-    <div class="section-head-row reveal">
-      <div>
-        <span class="section-tag" style="background:rgba(139,92,246,.15);color:#A78BFA;border-color:rgba(139,92,246,.3)">Premium</span>
-        <h2>Herramientas Premium</h2>
-        <p>Soluciones avanzadas con <strong style="color:#F472B6">prueba gratis de 3 días</strong>.</p>
-      </div>
-      <a href="#" class="view-all" onclick="applyFilter('TRIAL');return false;">Ver herramientas premium →</a>
-    </div>
-    <div class="tools-grid" id="premiumGrid"></div>
-  </div>
-</section>
 
 <section class="section" style="padding-top:0">
   <div class="container">
@@ -594,18 +661,6 @@ img.art-png{transition:filter .4s var(--ease)}
   </div>
 </section>
 
-<section class="section" id="nuevas">
-  <div class="container">
-    <div class="section-head-row reveal">
-      <div>
-        <span class="section-tag" style="background:rgba(245,158,11,.15);color:#FBBF24;border-color:rgba(245,158,11,.3)">Recién llegadas</span>
-        <h2>Nuevas herramientas</h2>
-        <p>Las últimas incorporaciones a nuestro ecosistema.</p>
-      </div>
-    </div>
-    <div class="tools-grid" id="newGrid"></div>
-  </div>
-</section>
 
 <section class="section" style="background:var(--bg-2)" id="porque">
   <div class="container">
@@ -617,7 +672,7 @@ img.art-png{transition:filter .4s var(--ease)}
     <div class="why-layout">
       <div class="reveal">
         <div class="why-media">
-          <img src="imagen6.jpg" alt="Tecnología de inteligencia artificial sostenida en la mano: el poder de Base44 Tools" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+          <img src="Imagen6.jpg" alt="Tecnología de inteligencia artificial sostenida en la mano: el poder de Herramix" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
         </div>
         <div class="why-caption">
           <div class="cap-icon">🤖</div>
@@ -699,15 +754,15 @@ img.art-png{transition:filter .4s var(--ease)}
   <div class="container">
     <div class="creator reveal">
       <div class="creator-main">
-        <img src="Rauly.jpg" alt="Raúl Cordero García, creador de Base44 Tools" class="creator-photo">
+        <img src="Rauly.jpg" alt="Raúl Cordero García, creador de Herramix" class="creator-photo">
         <div>
           <h3>Raúl Cordero García</h3>
-          <div class="role">Creador de Base44 Tools</div>
+          <div class="role">Creador de Herramix</div>
           <p>¿Tienes dudas o necesitas una herramienta específica? Estoy disponible para ayudarte a encontrar la solución adecuada para tu necesidad. Respondo personalmente por WhatsApp, Telegram o correo.</p>
           <div class="creator-contacts">
-            <a href="https://wa.me/5355081288?text=Hola%20Ra%C3%BAl%2C%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20Base44%20Tools" target="_blank" class="contact-btn contact-btn-wa">WhatsApp</a>
+            <a href="https://wa.me/5355081288?text=Hola%20Ra%C3%BAl%2C%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20Herramix" target="_blank" class="contact-btn contact-btn-wa">WhatsApp</a>
             <a href="https://t.me/Raulylg" target="_blank" class="contact-btn contact-btn-tg">Telegram</a>
-            <a href="mailto:corderorauly@gmail.com?subject=Consulta%20sobre%20Base44%20Tools" class="contact-btn contact-btn-mail">Email</a>
+            <a href="mailto:corderorauly@gmail.com?subject=Consulta%20sobre%20Herramix" class="contact-btn contact-btn-mail">Email</a>
           </div>
         </div>
       </div>
@@ -722,16 +777,16 @@ img.art-png{transition:filter .4s var(--ease)}
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#home" class="logo"><div class="logo-mark">B44</div><span>Base44 Tools</span></a>
+        <a href="#home" class="logo"><div class="logo-mark">Hx</div><span>Herramix</span></a>
         <p>Ecosistema profesional de herramientas digitales para potenciar tu productividad.</p>
       </div>
-      <div class="footer-col"><h4>Plataforma</h4><ul><li><a href="#home">Inicio</a></li><li><a href="#tools">Herramientas</a></li><li><a href="#gratis">Gratis</a></li><li><a href="#premium">Premium</a></li><li><a href="#bonificaciones">Bonificaciones</a></li><li><a href="#nuevas">Nuevas</a></li></ul></div>
+      <div class="footer-col"><h4>Plataforma</h4><ul><li><a href="#home">Inicio</a></li><li><a href="#tools">Herramientas</a></li><li><a href="#gratis">Gratis</a></li><li><a href="#packs">Precios</a></li><li><a href="#comprar">Cómo comprar</a></li><li><a href="#bonificaciones">Bonificaciones</a></li></ul></div>
       <div class="footer-col"><h4>Categorías</h4><ul><li><a href="#" onclick="filterByCategory('IA');return false;">Inteligencia Artificial</a></li><li><a href="#" onclick="filterByCategory('Marketing');return false;">Marketing</a></li><li><a href="#" onclick="filterByCategory('Productividad');return false;">Productividad</a></li><li><a href="#" onclick="filterByCategory('Diseño');return false;">Diseño</a></li><li><a href="#" onclick="filterByCategory('Utilidades');return false;">Utilidades</a></li></ul></div>
       <div class="footer-col"><h4>Recursos</h4><ul><li><a href="#demo">Demo en video</a></li><li><a href="#">Guías</a></li><li><a href="#">Blog (próximamente)</a></li></ul></div>
       <div class="footer-col"><h4>Soporte</h4><ul><li><a href="https://wa.me/5355081288" target="_blank">WhatsApp</a></li><li><a href="https://t.me/Raulylg" target="_blank">Telegram</a></li><li><a href="mailto:corderorauly@gmail.com">Email</a></li></ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Base44 Tools. Todos los derechos reservados.</span>
+      <span>© 2026 Herramix. Todos los derechos reservados.</span>
       <span>Privacidad · Términos · Cookies</span>
     </div>
   </div>
@@ -809,7 +864,12 @@ function initArt(){
 }
 window.addEventListener('load',initArt);
 
-const TOOLS = window.HERRAMIENTAS || [];
+const OCULTAS = window.OCULTAS || [];
+const PRECIOS = window.PRECIOS || {};
+const TOOLS = (window.HERRAMIENTAS || []).filter(t=>!OCULTAS.includes(t.id));
+TOOLS.forEach(t=>{ if(PRECIOS[t.id]) t.price=PRECIOS[t.id]; });
+const PACKS = window.PACKS || [];
+function waLink(msg){return 'https://wa.me/'+WA_PHONE+'?text='+encodeURIComponent(msg);}
 
 const CATEGORIES = [
   {id:'IA',name:'Inteligencia Artificial',icon:'🤖'},
@@ -828,20 +888,54 @@ const CAT_THEMES = {
 };
 
 const WA_PHONE='5355081288';
-const WA_GENERAL='https://wa.me/'+WA_PHONE+'?text='+encodeURIComponent('Hola Raúl, visité Base44 Tools y me gustaría más información.');
+const WA_GENERAL='https://wa.me/'+WA_PHONE+'?text='+encodeURIComponent('Hola Raúl, visité Herramix y me gustaría más información.');
 
 const grid=document.getElementById('toolsGrid'),freeGrid=document.getElementById('freeGrid'),
-premiumGrid=document.getElementById('premiumGrid'),bonusGrid=document.getElementById('bonusGrid'),
-newGrid=document.getElementById('newGrid'),catsGrid=document.getElementById('catsGrid');
+bonusGrid=document.getElementById('bonusGrid'),catsGrid=document.getElementById('catsGrid');
 
 function getTypeBadge(t){return{FREE:'<span class="badge badge-free">🟢 GRATIS</span>',PREMIUM:'<span class="badge badge-premium">🟣 PREMIUM</span>',TRIAL:'<span class="badge badge-trial">🟡 PRUEBA 3 DÍAS</span>',BONUS:'<span class="badge badge-bonus">🔵 BONIFICACIÓN</span>'}[t]||'';}
 function getStatusBadges(t){let h='';if(t.isNew)h+='<span class="badge badge-new">🆕 NUEVA</span>';if(t.isFeatured)h+='<span class="badge badge-featured">⭐ DESTACADA</span>';if(t.isPopular)h+='<span class="badge badge-popular">🔥 POPULAR</span>';return h;}
 function getPrimaryBtn(t){
-  if(t.url) return `<a class="tool-btn tool-btn-primary" href="${t.url}" target="_blank" rel="noopener" onclick="event.stopPropagation();">🚀 USAR AHORA</a>`;
-  const l=t.type==='FREE'?'USAR HERRAMIENTA':t.type==='TRIAL'?'PROBAR 3 DÍAS':t.type==='BONUS'?'OBTENER BONO':'ME INTERESA';
+  if(t.url) return `<a class="tool-btn tool-btn-primary" href="${t.url}" target="_blank" rel="noopener" onclick="event.stopPropagation();">🚀 ${t.type==='TRIAL'?'PROBAR 3 DÍAS':'USAR AHORA'}</a>`;
+  const l=t.type==='FREE'?'USAR HERRAMIENTA':t.type==='TRIAL'?'PROBAR 3 DÍAS':t.type==='BONUS'?'OBTENER BONO':'COMPRAR';
   return `<button class="tool-btn tool-btn-primary" onclick="openTool('${t.id}');event.stopPropagation();">${l}</button>`;
 }
 
+function priceLine(t){
+  if(t.price) return `<div class="tool-price"><strong>$${t.price}</strong> pago único${t.type==='TRIAL'?' · prueba 3 días gratis':''}</div>`;
+  if(t.type==='FREE') return `<div class="tool-price free"><strong>Gratis</strong></div>`;
+  return '';
+}
+function renderPacks(){
+  const g=document.getElementById('packsGrid'); if(!g) return;
+  g.innerHTML=PACKS.map(p=>{
+    const sum=p.tools.reduce((a,id)=>a+(PRECIOS[id]||0),0);
+    const was=sum>p.price?`<span class="was">$${sum}</span><span class="save">Ahorras $${sum-p.price}</span>`:'';
+    const buy=waLink(`Hola Raúl, quiero comprar "${p.name}" por $${p.price}. ¿Cómo te pago por QvaPay?`);
+    const trial=p.trial?`<a href="${p.trial}" target="_blank" rel="noopener" class="btn btn-ghost">Probar 3 días gratis</a>`
+      :`<a href="${waLink(`Hola Raúl, quiero probar 3 días gratis "${p.name}".`)}" target="_blank" class="btn btn-ghost">Pedir prueba de 3 días</a>`;
+    return `<div class="pack${p.featured?' featured':''}">
+      ${p.featured?'<div class="pack-flag">⭐ El más pedido</div>':''}
+      <div class="pack-icon">${p.icon}</div>
+      <h3>${p.name}</h3>
+      <div class="pack-who">${p.who}</div>
+      <p class="pack-hook">${p.hook}</p>
+      <div class="pack-price"><span class="now">$${p.price}</span>${was}</div>
+      <div class="pack-terms">Pago único · sin suscripción</div>
+      <ul>${p.points.map(x=>`<li>${x}</li>`).join('')}</ul>
+      <div class="pack-btns">
+        <a href="${buy}" target="_blank" class="btn btn-wa">${WA_SVG} Comprar por WhatsApp</a>
+        ${trial}
+      </div>
+    </div>`;}).join('');
+  const tot=document.getElementById('packTotal');
+  if(tot && window.PACK_TOTAL){
+    const all=Object.values(PRECIOS).reduce((a,b)=>a+b,0), n=TOOLS.filter(t=>t.price).length, pt=window.PACK_TOTAL.price;
+    tot.innerHTML=`<div><h3>🎁 Pack Todo Incluido</h3><p>Las ${n} herramientas de pago, juntas. Ideal para agencias y freelancers.</p></div>
+      <div><span class="now">$${pt}</span><span class="was">$${all}</span></div>
+      <a href="${waLink(`Hola Raúl, me interesa el Pack Todo Incluido por $${pt}.`)}" target="_blank" class="btn btn-wa">${WA_SVG} Lo quiero</a>`;
+  }
+}
 function renderTool(tool){
   const grad=CAT_THEMES[tool.cat]||CAT_THEMES['Utilidades'];
   return `
@@ -854,6 +948,7 @@ function renderTool(tool){
     <div class="tool-body">
       <h3>${tool.name}</h3>
       <p class="tool-desc">${tool.shortDesc}</p>
+      ${priceLine(tool)}
       <div class="tool-benefit">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
         <span>${tool.benefit}</span>
@@ -876,17 +971,16 @@ function renderAll(){
   }
   grid.innerHTML=TOOLS.map(renderTool).join('');
   const free=TOOLS.filter(t=>t.type==='FREE');
-  freeGrid.innerHTML=free.slice(0,3).map(renderTool).join('');
-  const prem=TOOLS.filter(t=>t.type==='TRIAL'||t.type==='PREMIUM');
-  premiumGrid.innerHTML=prem.slice(0,3).map(renderTool).join('');
+  freeGrid.innerHTML=free.filter(t=>t.isFeatured||t.isPopular).concat(free.filter(t=>!(t.isFeatured||t.isPopular))).slice(0,6).map(renderTool).join('');
+  renderPacks();
   bonusGrid.innerHTML=TOOLS.filter(t=>t.type==='BONUS').map(renderTool).join('');
-  newGrid.innerHTML=TOOLS.filter(t=>t.isNew).slice(0,6).map(renderTool).join('');
   document.getElementById('countAll').textContent=TOOLS.length;
   document.getElementById('countFree').textContent=free.length;
   document.getElementById('countTrial').textContent=TOOLS.filter(t=>t.type==='TRIAL').length;
   document.getElementById('countPremium').textContent=TOOLS.filter(t=>t.type==='PREMIUM').length;
   document.getElementById('countBonus').textContent=TOOLS.filter(t=>t.type==='BONUS').length;
-  document.getElementById('toolCount').textContent=TOOLS.length;
+  document.getElementById('statFree').textContent=free.length;
+  document.getElementById('freeCount2').textContent=free.length;
   document.getElementById('statTools').textContent=TOOLS.length;
   document.getElementById('currentStage').textContent=TOOLS.length+'+';
   const allCats=CATEGORIES.map(c=>c.id);
@@ -903,8 +997,8 @@ function renderAll(){
 const modal=document.getElementById('modal'),modalContent=document.getElementById('modalContent');
 function buildWaMsg(tool){
   const tpl={FREE:`Hola Raúl, me interesa usar la herramienta gratuita "${tool.name}". ¿Podrías indicarme cómo acceder?`,
-    PREMIUM:`Hola Raúl, estoy interesado en la herramienta "${tool.name}". Quisiera conocer el precio y condiciones de acceso.`,
-    TRIAL:`Hola Raúl, me interesa la herramienta "${tool.name}". Quiero información y activar mi prueba gratuita de 3 días.`,
+    PREMIUM:`Hola Raúl, quiero comprar la herramienta "${tool.name}"${tool.price?` por $${tool.price}`:''}. ¿Cómo te pago por QvaPay?`,
+    TRIAL:`Hola Raúl, me interesa la herramienta "${tool.name}"${tool.price?` ($${tool.price})`:''}. Quiero activar mi prueba gratuita de 3 días o comprarla.`,
     BONUS:`Hola Raúl, me interesa la bonificación "${tool.name}". ¿En qué promoción o producto está incluida?`};
   return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(tpl[tool.type])}`;
 }
@@ -924,9 +1018,10 @@ function openTool(id){
       <div class="modal-badges">${getTypeBadge(tool.type)}${getStatusBadges(tool)}<span class="badge badge-featured">${tool.dist}</span></div>
       <h1>${tool.name}</h1>
       <p class="modal-tagline">${tool.fullDesc}</p>
+      ${tool.price?`<div class="modal-price"><strong>$${tool.price}</strong><span>pago único${tool.type==='TRIAL'?' · prueba 3 días gratis':''}</span></div>`:''}
       <div class="modal-ctas">
-        ${tool.url?`<a href="${tool.url}" target="_blank" rel="noopener" class="btn btn-primary">🚀 ABRIR HERRAMIENTA AHORA</a>`:''}
-        <a href="${waUrl}" target="_blank" class="${tool.url?'btn btn-ghost':'btn btn-primary'}">${WA_SVG} ${tool.url?'PEDIR INFORMACIÓN POR WHATSAPP':'CONTACTAR POR WHATSAPP'}</a>
+        ${tool.url?`<a href="${tool.url}" target="_blank" rel="noopener" class="btn btn-primary">🚀 ${tool.type==='TRIAL'?'PROBAR 3 DÍAS GRATIS':'ABRIR HERRAMIENTA AHORA'}</a>`:''}
+        <a href="${waUrl}" target="_blank" class="${tool.price?'btn btn-wa':(tool.url?'btn btn-ghost':'btn btn-primary')}">${WA_SVG} ${tool.price?'COMPRAR POR WHATSAPP':(tool.url?'PEDIR INFORMACIÓN POR WHATSAPP':'CONTACTAR POR WHATSAPP')}</a>
         <a href="${tgUrl}" target="_blank" class="btn btn-ghost">${TG_SVG} Telegram</a>
         <a href="${mailUrl}" class="btn btn-ghost">${MAIL_SVG} Email</a>
       </div>
