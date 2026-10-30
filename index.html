@@ -180,6 +180,24 @@ img.art-png{transition:filter .4s var(--ease)}
 .split-media::before{content:'';position:absolute;inset:10%;background:radial-gradient(circle,rgba(99,102,241,.35),transparent 70%);filter:blur(36px)}
 .split-media img{width:min(400px,100%);position:relative;animation:floaty 6s ease-in-out infinite}
 .split-copy{position:relative;z-index:1}
+.vo-pill{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;padding:7px 14px 7px 7px;margin-bottom:14px;border-radius:100px;background:rgba(242,163,58,.1);border:1px solid rgba(242,163,58,.35);color:var(--text-2);font-size:13px;transition:border-color .2s,transform .2s}
+.vo-pill:hover{border-color:#F2A33A;transform:translateY(-1px)}
+.vo-pill b{background:#F2A33A;color:#1c1204;border-radius:100px;padding:3px 10px;font-size:11.5px;letter-spacing:.03em}
+.vo-pill span{color:#FBBF24;font-weight:700}
+.vo-pill i{font-style:normal}.vo-pill .vo-s{display:none}
+@media(max-width:600px){.vo-pill{flex-wrap:nowrap;white-space:nowrap}.vo-pill .vo-l{display:none}.vo-pill .vo-s{display:inline}}
+.vo-new{font-size:10px;font-weight:800;background:#F2A33A;color:#1c1204;border-radius:100px;padding:2px 6px;margin-left:4px;vertical-align:2px}
+.vo-split{grid-template-columns:1.05fr 1fr;border-color:rgba(242,163,58,.3)}
+.vo-split::before{content:'';position:absolute;inset:0;background:radial-gradient(600px 300px at 15% 20%,rgba(242,163,58,.12),transparent 70%);pointer-events:none}
+.vo-media::before{background:radial-gradient(circle,rgba(242,163,58,.28),transparent 70%)}
+.split-media.vo-media img{width:100%;border-radius:16px;animation:none;box-shadow:0 24px 60px rgba(0,0,0,.55)}
+.vo-list{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:8px;color:var(--text-2);font-size:15px;text-align:left}
+.vo-audio{display:flex;flex-direction:column;gap:8px;margin-bottom:22px;font-size:13.5px;color:var(--text-3);text-align:left}
+.vo-audio audio{width:100%;max-width:420px;height:38px}
+.vo-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.vo-combo{margin:18px 0 0 !important;font-size:14px !important;color:var(--text-3) !important}
+.vo-combo b{color:var(--text)}
+@media(max-width:900px){.vo-ctas{justify-content:center}.vo-list,.vo-audio{max-width:460px;margin-left:auto;margin-right:auto}.vo-audio audio{margin:0 auto}}
 .split-copy h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;letter-spacing:-.02em;margin-bottom:16px;line-height:1.15}
 .split-copy p{color:var(--text-2);margin-bottom:28px;font-size:clamp(.95rem,1.4vw,1.1rem);line-height:1.6}
 @media(max-width:968px){
@@ -399,6 +417,7 @@ img.art-png{transition:filter .4s var(--ease)}
       <a href="#home" class="nav-link">Inicio</a>
       <a href="#tools" class="nav-link">Catálogo</a>
       <a href="#packs" class="nav-link">Precios</a>
+      <a href="#voiceoff" class="nav-link">🎙️ VoiceOFF <span class="vo-new">NUEVO</span></a>
       <a href="#gratis" class="nav-link">Gratis</a>
       <a href="#comprar" class="nav-link">Cómo comprar</a>
       <a href="#demo" class="nav-link">Demo</a>
@@ -416,9 +435,10 @@ img.art-png{transition:filter .4s var(--ease)}
   <div class="container">
     <div class="hero-layout">
       <div class="hero-copy reveal">
+        <a href="#voiceoff" class="vo-pill"><b>🆕 NUEVO · GRATIS</b><i class="vo-l">VoiceOFF Studio: locuciones en español sin internet</i><i class="vo-s">VoiceOFF Studio</i><span>→</span></a><br>
         <div class="hero-badge"><span class="pulse-dot"></span><span>Pago único · Sin suscripciones · <strong>Prueba 3 días gratis</strong></span></div>
         <h1>Herramientas que trabajan por ti,<br><span class="gradient-text">sin pagar cada mes.</span></h1>
-        <p class="hero-sub">Subtitula y edita tus videos, crea la app Android de tu negocio o pasa documentos y audios a texto. Pruébalas 3 días y paga solo si te sirven: <strong style="color:var(--text)">desde $5, una sola vez</strong>.</p>
+        <p class="hero-sub">Crea locuciones en español gratis, subtitula y edita tus videos, crea la app Android de tu negocio o pasa documentos y audios a texto. Pruébalas 3 días y paga solo si te sirven: <strong style="color:var(--text)">desde $5, una sola vez</strong>.</p>
         <div class="hero-ctas">
           <a href="#packs" class="btn btn-primary">VER PRECIOS Y PACKS
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -439,6 +459,38 @@ img.art-png{transition:filter .4s var(--ease)}
   </div>
 </section>
 
+
+<section class="section" id="voiceoff" style="padding-bottom:20px">
+  <div class="container">
+    <div class="split vo-split reveal">
+      <div class="split-media vo-media">
+        <a href="https://corderorauly-raullg57.github.io/voiceoffstudio/" target="_blank" rel="noopener"><img src="https://corderorauly-raullg57.github.io/voiceoffstudio/banner-voiceoff.jpg" alt="VoiceOFF Studio: convierte tus textos en locuciones profesionales en español" loading="lazy"></a>
+      </div>
+      <div class="split-copy">
+        <span class="section-tag" style="background:rgba(242,163,58,.14);color:#FBBF24;border-color:rgba(242,163,58,.35)">🆕 Nuevo · 100% gratis</span>
+        <h2>VoiceOFF Studio: tu locutor profesional, <span class="gradient-text">gratis y sin internet</span></h2>
+        <p>Escribe un texto y en segundos tienes una locución lista para anuncios, vídeos, podcasts o cuñas de radio. Sin micrófono, sin pagar a un locutor y sin marca de agua.</p>
+        <ul class="vo-list">
+          <li>🎙️ 6 voces neuronales de España, México y Argentina</li>
+          <li>😄 8 emociones con un clic y música de fondo libre de derechos</li>
+          <li>💾 Exporta en MP3 o WAV y úsalo en trabajos de clientes</li>
+          <li>📴 Se instala una vez y funciona siempre sin conexión</li>
+        </ul>
+        <div class="vo-audio">
+          <span>▶ Escucha una muestra real (voz Daniela 🇦🇷):</span>
+          <audio controls preload="none" src="https://corderorauly-raullg57.github.io/voiceoffstudio/muestra-voiceoff.mp3"></audio>
+        </div>
+        <div class="vo-ctas">
+          <a class="btn btn-primary" href="https://corderorauly-raullg57.github.io/voiceoffstudio/" target="_blank" rel="noopener">DESCARGAR GRATIS
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="https://corderorauly-raullg57.github.io/EditorRCG_V8.2/" target="_blank" rel="noopener">🎬 Ponle vídeo con Editor RCG</a>
+        </div>
+        <p class="vo-combo">💡 <b>Combo ganador:</b> crea la voz con VoiceOFF y conviértela en un vídeo con subtítulos automáticos en Editor RCG (prueba 3 días gratis).</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section packs" id="packs">
   <div class="container">
